@@ -24,9 +24,9 @@ jobs:
           dotnet-version: ${{ env.DOTNET_VERSION }} 
       - name: Build
         run: |  # Commandes pour restaurer, compiler et publier l'application
-          dotnet restore
-          dotnet build -c Release --no-restore
-          dotnet publish -c Release -o out/
+          dotnet restore src/web-game/Globomantics.sln
+          dotnet build src/web-game/Globomantics.sln -c Release --no-restore
+          dotnet publish src/web-game/Globomantics.sln -c Release -o out/
       - name: Archive
         run: |  # Crée une archive tar.gz avec les fichiers publiés
           tar -czf artifact-${{ github.ref_name }}.tgz out/
